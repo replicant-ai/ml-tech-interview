@@ -6,8 +6,8 @@ Supports multiple languages.
 from utils import infer
 from en.model_types import PersonName
 from fr.model_types import PersonNameFR
-from en.model import load_model_en, MyNet, model_en
-from fr.model import load_model_fr, MyNetFR, model_fr
+from en.model import load_model_en
+from fr.model import load_model_fr
 from model_types import PersonCountryOfBirth
 from fastapi import FastAPI
 import uvicorn
