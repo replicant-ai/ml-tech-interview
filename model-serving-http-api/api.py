@@ -15,14 +15,14 @@ import uvicorn
 app = FastAPI()
 
 
-@app.patch("/getCountryOfBirthByNameEn", response_model=PersonCountryOfBirth)
+@app.post("/getCountryOfBirthByNameEn", response_model=PersonCountryOfBirth)
 async def getCountryOfBirthByNameEn(name: PersonName):
     model_en, _ = load_model_en()
     with infer(name.first, model_en) as p:
         return PersonCountryOfBirth(first_name=name.first, last_name=name.last, country_of_birth=p.country_of_birth)
 
 
-@app.patch("/getCountryOfBirthByNameFR", response_model=PersonCountryOfBirth)
+@app.post("/getCountryOfBirthByNameFR", response_model=PersonCountryOfBirth)
 async def getCountryOfBirthByNameFR(name: PersonNameFR):
     model_fr = load_model_fr()
     with infer(name.first, model_fr) as p:
